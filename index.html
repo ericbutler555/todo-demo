@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To-Do List | JavaScript demo by Eric Butler</title>
+	<link rel="stylesheet" href="styles.css">
+	<script defer src="scripts.js"></script>
+</head>
+<body>
+	<div class="page-wrapper">
+
+		<header class="page-header">
+			<img src="img/site-logo.svg" alt="Logo">
+			<span class="page-title">MY TO-DO LIST</span>
+			<nav class="page-navigation">
+				<ul>
+					<li><a href="#home">Home</a></li>
+					<li><a href="#generate">Generate</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main class="page-body">
+
+			<section class="list-settings">
+
+				<label for="sortBy">Sort tasks by:</label>
+				<select name="sort-by" id="sortBy">
+					<option value="newest">Newest</option>
+					<option value="oldest">Oldest</option>
+				</select>
+
+			</section>
+
+			<section class="todo-list">
+				<h2>To-Dos</h2>
+				<ul class="todos">
+					<!-- to-do items will be added here -->
+				</ul>
+			</section>
+
+		</main>
+
+		<footer class="site-footer">
+			<form class="todo-form">
+				<input type="text" name="todo-body">
+				<button type="submit">+ Add</button>
+				<span class="validation-message" data-empty-val="You forgot to write anything."></span>
+			</form>
+		</footer>
+
+	</div>
+</body>
+</html>
