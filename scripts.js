@@ -123,8 +123,8 @@ function deleteItem(index) {
 
 	// notify the user it's been deleted
 	var notification = document.createElement('div');
-	notification.setAttribute('class', 'flash-message');
-	notification.innerHTML = `Successfully deleted "${deletedItem[0].body}"`;
+	notification.className = "flash-message"; // could also do: notification.setAttribute('class', 'flash-message'); or: notification.classList.add('flash-message');
+	notification.textContent = `Successfully deleted "${deletedItem[0].body}"`;
 	document.body.appendChild(notification);
 
 	// clear the notification after 4 seconds

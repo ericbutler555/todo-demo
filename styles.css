@@ -2,6 +2,16 @@
  * Global/generic styles
  */
 
+:root {
+	/* can set global values here to use in other declarations */
+	--gray: #ccc;
+	--light-gray: #ddd;
+	--red: #a00;
+	--green: #67ae00;
+	--default-shadow: rgba(0, 0, 0, 0.25);
+	--default-duration: 0.3s;
+}
+
 *, *::before, *::after {
 	box-sizing: border-box;
 	margin: 0;
@@ -27,8 +37,8 @@ nav a::after {
 	left: 0;
 	width: 0; /* start here, will extend on hover */
 	height: 2px;
-	background: #a00;
-	transition: width 0.3s;
+	background: var(--red);
+	transition: width var(--default-duration);
 }
 nav a:hover::after {
 	width: 100%;
@@ -42,7 +52,7 @@ h2::after {
 	content: "";
 	flex: 1;
 	height: 1px;
-	background: #ccc;
+	background: var(--gray);
 	margin: 0 1rem;
 }
 
@@ -57,7 +67,7 @@ h2::after {
 	min-height: 100vh;
 	margin: 0 auto;
 	background: white;
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+	box-shadow: 0 2px 8px var(--default-shadow);
 }
 .page-body {
 	flex: 1; /* because of page-wrapper's min-height 100vh, this will expand to fill viewport height */
@@ -70,11 +80,11 @@ h2::after {
 
 .page-header {
 	flex: 0;
-	padding: 1rem 2.5rem;
 	display: flex; /* this is both a flex item (child of page-wrapper) and a flex container itself */
 	align-items: center;
-	border-bottom: 1px solid #ddd;
-	box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+	padding: 1rem 2.5rem;
+	border-bottom: 1px solid var(--light-gray);
+	box-shadow: 0 2px 4px -2px var(--default-shadow);
 }
 .page-title {
 	display: inline-block;
@@ -110,10 +120,10 @@ h2::after {
 	list-style: none;
 	margin: 0 1rem;
 	padding: 1rem;
-	border-bottom: 1px dashed #ccc;
+	border-bottom: 1px dashed var(--gray);
 }
 .todo.is-done {
-	background: #ddd;
+	background: var(--light-gray);
 	color: #777;
 }
 .todo .done-toggler {
@@ -133,15 +143,15 @@ h2::after {
 	border: 0;
 	border-radius: 0.25rem;
 	background: transparent;
-	color: #a00;
+	color: var(--red);
 	font-family: inherit;
 	font-size: 0.75rem;
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color var(--default-duration);
 }
 .todo .delete-button:hover,
 .todo .delete-button:focus {
-	background-color: #ddd;
+	background-color: var(--light-gray);
 }
 
 /* ======
@@ -174,7 +184,7 @@ h2::after {
 	border-bottom-left-radius: 0.5rem;
 }
 .todo-form.has-error input[type="text"] {
-	box-shadow: inset 0 0 0.5rem #a00;
+	box-shadow: inset 0 0 0.5rem var(--red);
 }
 .todo-form [type="submit"] {
 	width: 10rem;
@@ -182,12 +192,12 @@ h2::after {
 	border-top-right-radius: 0.5rem;
 	border-bottom-right-radius: 0.5rem;
 	border: 0;
-	background: #67ae00;
+	background: var(--green);
 	color: white;
 	font: inherit;
 	font-weight: bold;
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color var(--default-duration);
 }
 .todo-form [type="submit"]:hover,
 .todo-form [type="submit"]:focus {
@@ -206,13 +216,13 @@ h2::after {
  */
 
 .flash-message {
-	position: fixed;
+	position: fixed; /* anchors the element directly to the viewport, regardless of its position in the DOM */
 	top: 1rem;
 	left: 1rem;
 	right: 1rem;
 	padding: 1rem 2rem;
 	border-radius: 0.5rem;
-	background: #67ae00;
+	background: var(--green);
 	color: white;
 	text-align: center;
 	animation-name: flash;
