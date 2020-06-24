@@ -145,8 +145,12 @@ document.querySelector('[href="#home"]').addEventListener('click', function(even
 
 document.querySelector('[href="#generate"]').addEventListener('click', function(event) {
 	event.preventDefault();
-	updateTodoList(starterTodos);
-	todos = [...starterTodos];
+	if (sortByNewest) {
+		todos = [...starterTodos];
+	} else {
+		todos = [...starterTodos].reverse(); // dummy data is hard-coded as newest first, so need to reverse the order
+	}
+	updateTodoList(todos);
 });
 
 
